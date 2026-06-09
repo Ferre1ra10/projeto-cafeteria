@@ -1,0 +1,253 @@
+/* ===== Variáveis de tema "Cafeteria" ===== */
+:root {
+    --cafe-escuro: #3b2417;
+    --cafe-medio: #6f4e37;
+    --cafe-claro: #a47551;
+    --creme: #f5ede3;
+    --creme-claro: #fbf7f1;
+    --dourado: #c89b6a;
+    --texto: #2e2017;
+    --sombra: 0 8px 24px rgba(59, 36, 23, 0.15);
+    --raio: 14px;
+}
+
+/* ===== Reset básico ===== */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--texto);
+    background:
+        radial-gradient(circle at 15% 20%, rgba(200, 155, 106, 0.12), transparent 40%),
+        radial-gradient(circle at 85% 10%, rgba(111, 78, 55, 0.10), transparent 45%),
+        var(--creme);
+    line-height: 1.65;
+    min-height: 100vh;
+}
+
+/* ===== Cabeçalho ===== */
+header {
+    background: linear-gradient(135deg, var(--cafe-escuro), var(--cafe-medio));
+    color: var(--creme-claro);
+    padding: 48px 20px 36px;
+    text-align: center;
+    box-shadow: var(--sombra);
+    position: relative;
+    overflow: hidden;
+}
+
+header::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--dourado), var(--cafe-claro), var(--dourado));
+}
+
+header h1 {
+    margin: 0;
+    font-size: clamp(2rem, 5vw, 3rem);
+    letter-spacing: 1px;
+    font-weight: 800;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+header h1::before {
+    content: "☕ ";
+}
+
+/* ===== Navegação ===== */
+nav {
+    margin-top: 22px;
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: var(--creme-claro);
+    text-decoration: none;
+    margin: 0;
+    padding: 9px 20px;
+    border-radius: 999px;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    border: 1px solid rgba(245, 237, 227, 0.35);
+    transition: all 0.25s ease;
+}
+
+nav a:hover {
+    background: var(--dourado);
+    color: var(--cafe-escuro);
+    border-color: var(--dourado);
+    transform: translateY(-2px);
+}
+
+/* ===== Conteúdo principal ===== */
+main {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 48px 24px;
+}
+
+/* ===== Seções como cartões ===== */
+section {
+    margin-bottom: 28px;
+    background: var(--creme-claro);
+    padding: 32px 34px;
+    border-radius: var(--raio);
+    box-shadow: var(--sombra);
+    border: 1px solid rgba(111, 78, 55, 0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+section:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 32px rgba(59, 36, 23, 0.2);
+}
+
+h2 {
+    color: var(--cafe-escuro);
+    font-size: 1.7rem;
+    margin: 0 0 16px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--dourado);
+    display: inline-block;
+}
+
+p {
+    margin: 0;
+    font-size: 1.08rem;
+    color: #4a3526;
+}
+
+/* ===== Lista do cardápio ===== */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 14px;
+}
+
+li {
+    background: linear-gradient(135deg, var(--creme), #efe2d2);
+    padding: 16px 18px;
+    border-radius: 10px;
+    font-weight: 600;
+    color: var(--cafe-medio);
+    border-left: 4px solid var(--cafe-claro);
+    transition: all 0.25s ease;
+}
+
+li::before {
+    content: "•";
+    color: var(--dourado);
+    font-weight: 800;
+    margin-right: 10px;
+}
+
+li:hover {
+    background: var(--cafe-medio);
+    color: var(--creme-claro);
+    border-left-color: var(--dourado);
+    transform: translateX(4px);
+}
+
+/* ===== Formulário ===== */
+form {
+    max-width: 480px;
+    margin: 0 auto;
+    background: var(--creme-claro);
+    padding: 36px;
+    border-radius: var(--raio);
+    box-shadow: var(--sombra);
+    border: 1px solid rgba(111, 78, 55, 0.08);
+}
+
+label {
+    display: block;
+    font-weight: 700;
+    color: var(--cafe-escuro);
+    margin-bottom: 6px;
+    letter-spacing: 0.3px;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 13px 15px;
+    margin-bottom: 4px;
+    border: 1.5px solid rgba(111, 78, 55, 0.25);
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: inherit;
+    color: var(--texto);
+    background: #fff;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--cafe-claro);
+    box-shadow: 0 0 0 4px rgba(164, 117, 81, 0.18);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* ===== Botão ===== */
+button {
+    padding: 14px 32px;
+    border: none;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--cafe-medio), var(--cafe-escuro));
+    color: var(--creme-claro);
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    box-shadow: 0 6px 16px rgba(59, 36, 23, 0.3);
+    transition: all 0.25s ease;
+}
+
+button:hover {
+    background: linear-gradient(135deg, var(--cafe-claro), var(--cafe-medio));
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(59, 36, 23, 0.4);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* ===== Responsividade ===== */
+@media (max-width: 600px) {
+    header {
+        padding: 36px 16px 28px;
+    }
+
+    main {
+        padding: 32px 16px;
+    }
+
+    section,
+    form {
+        padding: 24px 20px;
+    }
+}
